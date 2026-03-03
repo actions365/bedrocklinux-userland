@@ -254,13 +254,13 @@ vendor/musl/.success_fetching_source:
 	rm -rf vendor/musl
 	mkdir -p vendor/musl
 	git clone --depth=1 \
-		-b `git ls-remote --tags 'git://git.musl-libc.org/musl' | \
+		-b `git ls-remote --tags 'https://git.musl-libc.org/musl.git' | \
 		awk -F/ '{print $$NF}' | \
 		sed 's/^v//g' | \
 		grep '^[0-9.]*$$' | \
 		sort -t . -k1,1n -k2,2n -k3,3n -k4,4n -k5,5n | \
 		tail -n1 | \
-		sed 's/^/v/'` 'git://git.musl-libc.org/musl' \
+		sed 's/^/v/'` 'https://git.musl-libc.org/musl.git' \
 		vendor/musl
 	touch vendor/musl/.success_fetching_source
 $(COMPLETED)/musl: vendor/musl/.success_fetching_source $(COMPLETED)/builddir $(COMPLETED)/linux_headers
