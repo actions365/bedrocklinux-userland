@@ -467,7 +467,7 @@ vendor/busybox/.success_retrieving_source:
 	rm -rf vendor/busybox
 	mkdir -p vendor/busybox
 	git clone --depth=1 \
-		-b `git ls-remote --heads 'git://git.busybox.net/busybox' | \
+		-b `git ls-remote --heads 'https://github.com/mirror/busybox' | \
 		awk -F/ '$$NF ~ /stable$$/ {print $$NF}' | \
 		sort -t _ -k1,1n -k2,2n -k3,3n -k4,4n -k5,5n | \
 		tail -n1` 'git://git.busybox.net/busybox' \
